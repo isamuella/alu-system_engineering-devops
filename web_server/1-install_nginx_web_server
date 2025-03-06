@@ -2,7 +2,7 @@
 # Installing Nginx on a server
 
 sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get -y install nginx
 
 sudo apt-get install ufw
 sudo ufw allow 'Nginx HTTP'
