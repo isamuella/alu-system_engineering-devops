@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Installing Nginx on a server
+# Commands to automatically configure a Ubuntu machine to handle redirection
 
-sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt-get update -y
+sudo apt-get install nginx -y
 
 sudo ufw allow 'Nginx HTTP'
 
@@ -11,4 +11,4 @@ sudo touch /etc/nginx/html/index.html
 
 sudo sed -i '/server_name _;/a \\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t}' /etc/nginx/sites-available/default
 
-sudo systemctl restart nginx
+sudo service nginx restart
