@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Installing Nginx on a server
+
+sudo apt-get update
+sudo apt-get -y install nginx
+
+sudo apt-get install ufw
+sudo ufw allow 'Nginx HTTP'
+
+echo 'Holberton School' | sudo tee /var/www/html/index.html
+
+sudo sed -i '/server_name _:/a //n/tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n" /etc/nginx/sites-available/default
+
+sudo service nginx restart
