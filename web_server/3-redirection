@@ -13,4 +13,4 @@ sudo sed -i '/server_name _;/a \n\tlocation /redirect_me {\n\t\t return 301 http
 
 sudo nginx -t
 
-sudo service nginx restart
+sudo systemctl restart nginx
