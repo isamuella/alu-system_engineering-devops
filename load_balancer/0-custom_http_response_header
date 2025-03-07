@@ -4,12 +4,12 @@
 sudo apt update -y
 sudo apt install nginx -y
 
-sudo systemctl enable nginx
-sudo systemctl start nginx
+ufw enable
+ufw allow 'Nginx HTTP'
+ufw allow 'OpenSSH'
 
-sudo sed -i "/server_name _;/a \    add_header X-Served-By '"$(hostname)"';" /etc/nginx/sites-available/default
+echo 'Holberton School' > /var/www/html/index.html
 
-echo "$new_config" > /etc/nginx/sites-available/default
+sed -i "/server_name _;/a \\\tadd_header X-Served-By \$HOSTNAME;" /etc/nginx/sites-available/default
 
-sudo systemctl restart nginx
-
+service nginx restart
